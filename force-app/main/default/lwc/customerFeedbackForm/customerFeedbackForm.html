@@ -1,0 +1,20 @@
+<template>
+    <lightning-card  title="Customer Feedback Form" icon-name="standard:feedback">
+    <lightning-button variant='Success' label='New' slot="actions" class="slds-m-left_x-small" ></lightning-button>
+   <!--- <label class="slds-form-element__label" for="unique-id-of-input">Customer Feedback Form</label>-->
+   <p class="slds-p-horizontal_small">
+   <lightning-input type='text' required label='First Name' data-id='firstname' ></lightning-input>
+    <lightning-input type='text' label='Middle Name' data-id='middlename' ></lightning-input>
+    <lightning-input type='text' required label='Last Name' data-id='lastname'></lightning-input>
+    <lightning-input type='text' required label='Email' data-id='email' ></lightning-input>
+    <lightning-input type='date' label='D.O.B' data-id='dob'></lightning-input>
+    <lightning-textarea label='Comment' required placeholder='Enter your feedback...' data-id='comment'></lightning-textarea>
+   </p>
+   <p slot="footer"> 
+   <lightning-button-group>
+    <lightning-button variant='Success' label='Save' icon-name='utility:save' onclick={handleSave} class="slds-m-left_x-small" ></lightning-button>
+    <lightning-button variant='Success' label='Refresh'  class="slds-m-left_x-small" onclick={handleRefresh} ></lightning-button>
+    </lightning-button-group>
+</p>
+</lightning-card>
+</template>

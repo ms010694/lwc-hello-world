@@ -1,0 +1,29 @@
+<template>
+    <div class="slds-p-bottom_large slds-p-left_large" style="width:500px">
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" label="Name" data-id="handleStdName" placeholder="Enter your name"></lightning-input>
+            <lightning-input type="tel" label="Phone" data-id="handlePhone" ></lightning-input>
+            <lightning-input type="text" label="Address" data-id="handleAddress"></lightning-input>
+            <lightning-input-address
+        address-label="Address"
+        street-label="Street"
+        city-label="City"
+        country-label="Country"
+        province-label="State"
+        postal-code-label="PostalCode"
+        street="Shanti Sarowar"
+        city="Aligarh"
+        country="India"
+        province="UP"
+        postal-code="202001"
+        required
+        field-level-help="Help Text for inputAddress field" ></lightning-input-address>
+            <lightning-button type="submit"
+                        name="submit"
+                        label="Create Contact"
+                        onclick={createContactHandler}>
+            </lightning-button>
+        
+        </div>
+    </div>
+</template>

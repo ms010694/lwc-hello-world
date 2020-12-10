@@ -1,0 +1,9 @@
+{
+  "orgName": "CCTesting",
+  "edition": "Developer",  
+  "settings": {
+      "omniChannelSettings": {
+           "enableOmniChannel": true
+  }
+        }
+}
