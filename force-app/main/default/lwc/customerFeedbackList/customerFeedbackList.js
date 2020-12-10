@@ -2,8 +2,8 @@ import { LightningElement, track } from 'lwc';
 import getFeedbacklist from '@salesforce/apex/CustomerFeedbackListApexController.getFeedbacklist';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 const columns = [
-    { label: 'Contact Name', fieldName: 'Contact__r.Name', type :'text'},
-    { label: 'Email', fieldName: 'Contact__r.Email', type: 'email' },
+    { label: 'Contact Name', fieldName: 'Contact.Name', type :'text'},
+    { label: 'Email', fieldName: 'Contact.Email', type: 'email' },
     { label: 'Feedback number', fieldName: 'Name', type :'text'},
     { label: 'Comment', fieldName: 'Comment__c', type: 'text' }
 ];
