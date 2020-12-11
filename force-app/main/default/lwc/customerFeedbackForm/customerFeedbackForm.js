@@ -1,4 +1,4 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, api, track } from 'lwc';
 import saveFeedbackDetails from '@salesforce/apex/SaveCustomerFeedbackFormDetails.saveFeedbackDetails';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 export default class CustomerFeedbackForm extends LightningElement {
@@ -32,6 +32,10 @@ export default class CustomerFeedbackForm extends LightningElement {
             .catch(error => {
                 this.error = error;
             });
+    }
+    @api handlechildedit(){
+        alert('bye');
+       // this.firstname=editfirstname;
     }
     handleRefresh(event){
         this.template.querySelector('[data-id^="firstname"]').value='';

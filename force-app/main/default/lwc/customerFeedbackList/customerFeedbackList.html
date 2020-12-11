@@ -1,9 +1,60 @@
 <template>
-    <div style="height: 300px;">
+   <!-- <div style="height: 300px;">
         <lightning-datatable
                 key-field="id"
                 data={data}
                 columns={columns}>
         </lightning-datatable>
-    </div>
+    </div>-->
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+        <thead>
+          <tr class="slds-line-height_reset">
+            <th class="" scope="col">
+                <div class="slds-truncate" title="Edit"></div>
+              </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Contact Email">Contact Email</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Contact Name">Contact Name</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Feedback Number">Feedback Number</div>
+            </th>
+            <th class="" scope="col">
+              <div class="slds-truncate" title="Stage">Feedback Comment</div>
+            </th>
+            <th class="" scope="col">
+                <div class="slds-truncate" title="delete"></div>
+              </th>
+          </tr>
+        </thead>
+        <tbody>
+            <template iterator:feed={data}>   
+          <tr key={feed.value.ID} class="slds-hint-parent">
+            <td data-label="Edit">
+                <lightning-button-icon name={feed.value.Id} icon-name="utility:edit" variant="brand"  alternative-text="Edit"   class="slds-m-left_xx-small" onclick={handleedit} title="Edit"></lightning-button-icon>
+            </td>
+            <th data-label="Contact Name" scope="row">
+              <div class="slds-truncate" title={feed.value.cemail}>
+                <a href="javascript:void(0);" tabindex="-1">{feed.value.cemail}</a>
+              </div>
+            </th>
+            <td data-label="Conact Email">
+              <div class="slds-truncate" title={feed.value.cname}>{feed.value.cname}</div>
+            </td>
+            <td data-label="Feedback Number">
+              <div class="slds-truncate" title={feed.value.Name}>{feed.value.Name}</div>
+            </td>
+            <td data-label="Comment">
+              <div class="slds-truncate" title={feed.value.comment__c}>{feed.value.Comment__c}</div>
+            </td>
+            <td data-label="Delete">
+            <lightning-button-icon icon-name="utility:delete" variant="brand"  alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"></lightning-button-icon>
+        </td>
+          </tr>
+       
+          </template>
+        </tbody>
+      </table>
 </template>

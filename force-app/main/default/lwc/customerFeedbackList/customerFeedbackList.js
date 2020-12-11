@@ -2,8 +2,8 @@ import { LightningElement, track } from 'lwc';
 import getFeedbacklist from '@salesforce/apex/CustomerFeedbackListApexController.getFeedbacklist';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 const columns = [
-    { label: 'Contact Name', fieldName: 'Contact.Name', type :'text'},
-    { label: 'Email', fieldName: 'Contact.Email', type: 'email' },
+    { label: 'Contact Name', fieldName: 'cname', type :'text'},
+    { label: 'Email', fieldName: 'cemail', type: 'email' },
     { label: 'Feedback number', fieldName: 'Name', type :'text'},
     { label: 'Comment', fieldName: 'Comment__c', type: 'text' }
 ];
@@ -17,12 +17,18 @@ export default class CustomerFeedbackList extends LightningElement {
         getFeedbacklist()
         .then(result => {
             this.Feedbacklist=result;
-            this.data=result;
+           // this.data=result;
             alert(this.Feedbacklist[0].Contact__r.Name+':'+this.Feedbacklist[0].Contact__r.Email);
-          /*for(i=0;i<Feedbacklist.length;i++){
-              data.push({name : this.Feedbacklist[i].contactname,email : this.Feedbacklist[i].contactemail});
-            }*/
-            
+          for(let i=0;i<this.Feedbacklist.length;i++){
+              //this.data.push({cname : this.Feedbacklist[i].Contact__r.Name,cemail : this.Feedbacklist[i].Contact__r.Email});
+              //alert(this.Feedbacklist[i].Contact__r);
+             // if(this.Feedbacklist.Contact__r){
+                  this.Feedbacklist[i].cname=this.Feedbacklist[i].Contact__r.Name;
+                  this.Feedbacklist[i].cemail=this.Feedbacklist[i].Contact__r.Email;
+            //  }
+
+            }
+            this.data=this.Feedbacklist;
             const evt = new ShowToastEvent({
                 title: 'Feedback',
                 message: 'Success',
@@ -34,6 +40,10 @@ export default class CustomerFeedbackList extends LightningElement {
         .catch(error => {
             this.error = error;
         });  
+    }
+    handleedit(event){
+        alert(event.target.name);
+        this.template.querySelector('c-customer-feedback-form').handlechildedit();
     }
 
 }
