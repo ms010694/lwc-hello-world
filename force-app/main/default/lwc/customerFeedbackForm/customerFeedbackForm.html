@@ -1,6 +1,7 @@
 <template>
+    <template if:true={showform} >
     <lightning-card  title="Customer Feedback Form" icon-name="standard:feedback">
-    <lightning-button variant='Success' label='New' slot="actions" class="slds-m-left_x-small" ></lightning-button>
+    <lightning-button variant='Success' label='Back' slot="actions" onclick={handleback} class="slds-m-left_x-small" ></lightning-button>
    <!--- <label class="slds-form-element__label" for="unique-id-of-input">Customer Feedback Form</label>-->
    <p class="slds-p-horizontal_small">
    <lightning-input type='text' required label='First Name' data-id='firstname' ></lightning-input>
@@ -17,4 +18,8 @@
     </lightning-button-group>
 </p>
 </lightning-card>
+</template>
+<template if:true={showlist}>
+<c-customer-feedback-list ></c-customer-feedback-list>
+</template>
 </template>

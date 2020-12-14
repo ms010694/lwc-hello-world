@@ -6,6 +6,7 @@
                 columns={columns}>
         </lightning-datatable>
     </div>-->
+    <template if:true={showlist}>
     <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
         <thead>
           <tr class="slds-line-height_reset">
@@ -50,11 +51,15 @@
               <div class="slds-truncate" title={feed.value.comment__c}>{feed.value.Comment__c}</div>
             </td>
             <td data-label="Delete">
-            <lightning-button-icon icon-name="utility:delete" variant="brand"  alternative-text="Delete"   class="slds-m-left_xx-small" title="Delete"></lightning-button-icon>
+            <lightning-button-icon icon-name="utility:delete" name={feed.value.Id} variant="brand"  alternative-text="Delete"   class="slds-m-left_xx-small" onclick={handledelete} title="Delete"></lightning-button-icon>
         </td>
           </tr>
        
           </template>
         </tbody>
       </table>
+    </template>
+    <template if:true={showform}>
+      <c-customer-feedback-form editfirstname={firstname} ></c-customer-feedback-form>
+    </template>
 </template>

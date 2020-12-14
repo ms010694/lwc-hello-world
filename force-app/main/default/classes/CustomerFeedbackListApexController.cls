@@ -32,4 +32,12 @@ public with sharing class CustomerFeedbackListApexController {
             this.feedbackcomment=feedbackcomment;
         }
     }*/
+    @AuraEnabled
+    public static void deleteRecord(String feedid){
+        try {
+            delete [Select id from Customer_Feedback__c where Id =:feedid];
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

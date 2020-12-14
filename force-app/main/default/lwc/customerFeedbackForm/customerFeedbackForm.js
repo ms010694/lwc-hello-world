@@ -9,6 +9,15 @@ export default class CustomerFeedbackForm extends LightningElement {
    @track email;
    @track dob=null;
    @track comment;
+   @api editfirstname='hi';
+   @track showform=true;
+   @track showlist=false;
+   connectedCallback(){
+       //this.showform=true;
+       alert('child==>' + this.editfirstname);
+      // alert(this.template.querySelector('[data-id^="firstname"]').value);
+
+   }
    handleSave(event){
       this.firstname=this.template.querySelector('[data-id^="firstname"]').value;
       this.middlename=this.template.querySelector('[data-id^="middlename"]').value;
@@ -33,10 +42,6 @@ export default class CustomerFeedbackForm extends LightningElement {
                 this.error = error;
             });
     }
-    @api handlechildedit(){
-        alert('bye');
-       // this.firstname=editfirstname;
-    }
     handleRefresh(event){
         this.template.querySelector('[data-id^="firstname"]').value='';
         this.template.querySelector('[data-id^="middlename"]').value='';
@@ -44,5 +49,9 @@ export default class CustomerFeedbackForm extends LightningElement {
         this.template.querySelector('[data-id^="email"]').value='';
         this.template.querySelector('[data-id^="dob"]').value=null;
         this.template.querySelector('[data-id^="comment"]').value='';
+    }
+    handleback(event){
+         this.showform=false;
+         this.showlist=true;
     }
    }
